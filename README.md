@@ -1,27 +1,46 @@
-# ☁️ Otimização de Atendimento com Screen Flow (Salesforce Service Cloud)
+# Otimização de Atendimento com Screen Flow (Salesforce Service Cloud)
 
-## 🎯 O Cenário e o Desafio de Negócio
-Em operações de provedores de internet (ISP), o Tempo Médio de Atendimento (TMA) é uma métrica crítica. No cenário atual ("As-Is"), os agentes de suporte precisavam navegar por múltiplas telas no Salesforce para consultar dados da Conta, ler scripts de atendimento em blocos de notas e criar manualmente Ordens de Trabalho (Work Orders). 
-**Resultado:** Alto TMA, redundância de cliques e chance de erro humano na triagem.
+Este repositório reúne um **Screen Flow** pensado para **reduzir o TMA** no atendimento de um provedor de internet (ISP), trazendo o roteiro de troubleshooting para dentro do Salesforce e automatizando os próximos passos do caso.
 
-## 💡 A Solução (To-Be)
-Foi desenhada e implementada uma solução nativa no Salesforce utilizando **Screen Flows**. O fluxo atua como um guia passo a passo na própria tela do Caso, unificando o script de diagnóstico (troubleshooting) e automatizando as ações de banco de dados (DML).
+## Contexto (dor atual)
+No cenário atual, o atendimento dependia de muita navegação e tarefas manuais. Em geral, o agente precisava:
 
-### 🛠️ Arquitetura Funcional e Árvore de Decisão
-*(Aqui futuramente vamos colocar a imagem do seu fluxograma feito no Miro/Draw.io)*
+- alternar entre telas para consultar dados de Conta e do Caso;
+- seguir roteiros de diagnóstico em documentos externos (ex.: bloco de notas);
+- criar **Work Orders** manualmente quando era necessária visita técnica.
 
-O fluxo segue 3 etapas principais de validação com o cliente:
-1. **Validação de Energia:** Verifica se o equipamento liga.
-2. **Validação de Sinal Óptico:** Diagnóstico de luzes indicadoras (LOS/PON) para detectar rompimento de fibra.
-3. **Troubleshooting Nível 1:** Reinicialização forçada guiada.
+**Impacto:** mais tempo por atendimento, repetição de cliques e maior chance de erro na triagem.
 
-### ⚙️ Objetos e Automações Envolvidas
-* **Objeto de Entrada:** `Case` (O fluxo captura o `recordId` para contexto imediato).
-* **Automação de Saída 1 (Sucesso):** Atualiza o Status do Caso para `Closed` com os detalhes da resolução.
-* **Automação de Saída 2 (Falha Física):** Atualiza o Status do Caso para `Escalated` e gera automaticamente um registro no objeto `Work Order` para agendamento de visita técnica.
+## O que foi implementado
+A solução foi construída de forma nativa no Salesforce com **Screen Flow**, executando o passo a passo diretamente na tela do **Case**.
 
-## 🚀 Como testar/visualizar
-*(Aqui colocaremos o GIF de você utilizando o fluxo na tela do Service Cloud)*
+O fluxo funciona como um “assistente” de atendimento:
+- guia o agente pelas perguntas/validações com o cliente;
+- registra o resultado do diagnóstico;
+- automatiza as atualizações e criações de registros necessárias (DML).
+
+## Lógica do fluxo (visão funcional)
+> TODO: adicionar aqui uma imagem do fluxograma (Miro/Draw.io)
+
+O fluxo foi organizado em 3 blocos principais:
+
+1. **Energia**  
+   Confere se o equipamento está ligado e responde como esperado.
+
+2. **Sinal óptico (LOS/PON)**  
+   Ajuda a identificar, a partir dos LEDs, indícios de problema físico (ex.: possível rompimento/falha de fibra).
+
+3. **Troubleshooting Nível 1**  
+   Roteiro guiado de reinicialização/validações simples antes de escalar.
+
+## Objetos e automações
+- **Entrada:** `Case` (o Flow usa o `recordId` para operar no contexto do caso aberto).
+- **Saída (quando resolve):** atualiza o `Case` para `Closed` e registra os detalhes da resolução.
+- **Saída (quando indica falha física):** atualiza o `Case` para `Escalated` e cria um registro em `Work Order` para agendamento da visita técnica.
+
+## Como testar / visualizar
+> TODO: incluir um GIF do Flow rodando no Service Cloud
 
 ---
-*Projeto desenvolvido como estudo de caso de Análise Funcional e Automação no ecossistema Salesforce.*
+
+Projeto desenvolvido como estudo de caso de análise funcional e automação no ecossistema Salesforce.
