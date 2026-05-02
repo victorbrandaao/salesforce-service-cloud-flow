@@ -29,11 +29,7 @@ O fluxo foi estruturado em três ramificações principais de diagnóstico:
 - **Salesforce Service Cloud:** Lightning App Builder, Screen Flows.
 - **Platform Engineering:** Gestão dos metadados da Org (arquivos `.flow-meta.xml`) versionados via **Salesforce CLI** e **VS Code**.
 
-## 🖥️ Demonstração Visual
-> [!NOTE] 
-> *Adicione aqui um GIF (máx 15s) mostrando a tela do Service Cloud com o Flow rodando na lateral direita do registro do Caso e gerando a Work Order.*
 
-> *Adicione aqui uma imagem do fluxograma no Flow Builder para ilustrar a complexidade dos nós de decisão.*
 
 ---
 *Construído na interseção entre análise de negócios e engenharia de plataforma.*
