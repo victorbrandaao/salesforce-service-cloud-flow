@@ -1,32 +1,18 @@
-# 🏢 Connecta Solutions | Salesforce Architecture Monorepo
+# Salesforce DX Project: Next Steps
 
-Este repositório consolida a arquitetura, metadados e integrações desenvolvidas para a **Connecta Solutions** (empresa fictícia B2B do segmento de Telecomunicações/ISP). 
+Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
 
-O projeto foi construído durante o **Training Camp DreamXP (Pitang)**, aplicando conceitos de Análise Funcional, Engenharia de Plataforma (Platform Engineering) e governança de dados no ecossistema Salesforce.
+## How Do You Plan to Deploy Your Changes?
 
----
+Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
 
-## 🛠️ Módulo 1: Sales Cloud (Captação e Governança de Leads)
-Focado na otimização do funil de vendas B2B, este módulo desacopla a captura de leads do CRM, utilizando um front-end customizado e garantindo a higienização de dados via Backend (Apex) antes da persistência no banco de dados.
+## Configure Your Salesforce DX Project
 
-*   **Front-end Customizado (Web-to-Lead):** Landing page responsiva e estilizada, com validação de dados via JavaScript no lado do cliente. (Localizado em `/b2b-landing-page`).
-*   **Apex Trigger (Middleware de Higienização):** Gatilho `before insert` e `before update` desenvolvido em Apex (`FormataTelefoneLead.trigger`) para interceptar o payload, aplicando Regex para padronizar telefones automaticamente no padrão `(XX) XXXXX-XXXX`.
-*   **Governança (Validation Rule):** Regra de validação rígida implementada nos metadados do Lead para garantir que a arquitetura rejeite qualquer entrada de dados suja que tente burlar a Trigger.
+The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
 
----
+## Read All About It
 
-## 🎧 Módulo 2: Service Cloud (Otimização de Atendimento e Field Service)
-Focado em reduzir o Tempo Médio de Atendimento (TMA) do suporte técnico e eliminar processos manuais (*swivel chair*).
-
-*   **Troubleshooting Nível 1 (Screen Flow):** Assistente guiado diretamente na Lightning Record Page do `Case`. O fluxo consolida roteiros de verificação de energia elétrica e sinal óptico (LOS/PON).
-*   **Automação DML:** 
-    *   **Resolução:** Atualização automática do status do Caso e injeção do log de atendimento.
-    *   **Escalonamento Físico:** Identificação de falha física na fibra, gerando automaticamente a criação de uma `Work Order` para agendamento da visita técnica.
-
----
-
-## 💻 Tecnologias Utilizadas
-*   **Salesforce Ecosystem:** Sales Cloud, Service Cloud, Lightning App Builder, Screen Flows.
-*   **Desenvolvimento Backend:** Apex (Triggers), SOQL, Validation Rules (Regex).
-*   **Desenvolvimento Frontend:** HTML5, CSS3, Vanilla JavaScript.
-*   **DevOps & Ferramentas:** Salesforce CLI (SFDX), VS Code, Git/GitHub.
+- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
+- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
+- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
+- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)

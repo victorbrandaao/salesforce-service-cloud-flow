@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connecta Solutions | Transformação Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #003366; /* Azul Escuro Connecta */
+            --secondary: #008080; /* Verde Água Connecta */
+            --bg-light: #f8fafc;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+
+        body {
+            background-color: var(--bg-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .landing-container {
+            display: flex;
+            background: #ffffff;
+            max-width: 1000px;
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        /* Lado Esquerdo - Branding */
+        .brand-panel {
+            background: linear-gradient(135deg, var(--primary) 0%, #001f3f 100%);
+            color: white;
+            padding: 50px 40px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .brand-panel h1 { font-size: 2.2rem; margin-bottom: 20px; font-weight: 700; }
+        .brand-panel p { font-size: 1.1rem; line-height: 1.6; color: #cbd5e1; margin-bottom: 30px; }
+        
+        .benefits { list-style: none; }
+        .benefits li { margin-bottom: 15px; display: flex; align-items: center; font-size: 0.95rem; font-weight: 300; }
+        .benefits li::before {
+            content: "✓";
+            color: var(--secondary);
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Lado Direito - Formulário */
+        .form-panel {
+            padding: 50px 40px;
+            flex: 1.2;
+            background: #ffffff;
+        }
+
+        .form-panel h2 { color: var(--text-dark); margin-bottom: 8px; font-size: 1.5rem; }
+        .form-panel > p { color: var(--text-muted); margin-bottom: 30px; font-size: 0.95rem; }
+
+        .form-row { display: flex; gap: 15px; margin-bottom: 15px; }
+        .form-group { flex: 1; display: flex; flex-direction: column; }
+
+        label { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 6px; }
+
+        input, select, textarea {
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            background-color: var(--bg-light);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.1);
+            background-color: #ffffff;
+        }
+
+        textarea { resize: vertical; min-height: 80px; }
+
+        button {
+            width: 100%;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover { background-color: #006666; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 128, 128, 0.2); }
+
+        /* Responsividade para Mobile */
+        @media (max-width: 768px) {
+            .landing-container { flex-direction: column; }
+            .brand-panel { padding: 40px 30px; }
+            .form-row { flex-direction: column; gap: 0; }
+            .form-group { margin-bottom: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="landing-container">
+    
+    <!-- Painel da Marca (Esquerda) -->
+    <div class="brand-panel">
+        <h1>Connecta Solutions</h1>
+        <p>Acelere a transformação digital da sua empresa com as nossas soluções focadas em eficiência e escala.</p>
+        <ul class="benefits">
+            <li>Automação de processos corporativos</li>
+            <li>Implementação de Service Cloud</li>
+            <li>Consultoria especializada em CRM</li>
+        </ul>
+    </div>
+
+    <!-- Painel do Formulário (Direita) -->
+    <div class="form-panel">
+        <h2>Fale com nossos especialistas</h2>
+        <p>Preencha os dados abaixo e agendaremos uma demonstração.</p>
+
+        <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DgK00000NyhCv" method="POST">
+            
+            <input type="hidden" name="oid" value="00DgK00000NyhCv">
+            <input type="hidden" name="retURL" value="https://google.com">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="first_name">Nome</label>
+                    <input id="first_name" maxlength="40" name="first_name" type="text" required />
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Sobrenome</label>
+                    <input id="last_name" maxlength="80" name="last_name" type="text" required />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">E-mail Corporativo</label>
+                    <input id="email" maxlength="80" name="email" type="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefone (WhatsApp)</label>
+                    <input id="phone" maxlength="40" name="phone" type="text" oninput="mascaraTelefone(this)" placeholder="(XX) XXXXX-XXXX" required />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="company">Empresa</label>
+                    <input id="company" maxlength="40" name="company" type="text" required />
+                </div>
+                <div class="form-group">
+                    <label for="title">Cargo</label>
+                    <input id="title" maxlength="40" name="title" type="text" placeholder="Ex: Gestor Comercial" required />
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="industry">Segmento da Empresa</label>
+                <select id="industry" name="industry" required>
+                    <option value="">Selecione...</option>
+                    <option value="Technology">Tecnologia / Software</option>
+                    <option value="Finance">Serviços Financeiros</option>
+                    <option value="Healthcare">Saúde</option>
+                    <option value="Manufacturing">Indústria</option>
+                    <option value="Retail">Varejo</option>
+                    <option value="Other">Outro</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Qual o seu maior desafio atual?</label>
+                <textarea id="description" name="description" placeholder="Ex: Precisamos integrar nossos canais de atendimento..."></textarea>
+            </div>
+
+            <button type="submit">Solicitar Contato Comercial</button>
+        </form>
+    </div>
+
+</div>
+
+<script>
+    // Mantém a proteção do banco de dados da Connecta
+    function mascaraTelefone(input) {
+        let v = input.value.replace(/\D/g, ''); 
+        if (v.length > 11) v = v.slice(0, 11);
+        if (v.length > 2) {
+            v = '(' + v.substring(0, 2) + ')' + v.substring(2);
+        }
+        input.value = v;
+    }
+</script>
+
+</body>
+</html>

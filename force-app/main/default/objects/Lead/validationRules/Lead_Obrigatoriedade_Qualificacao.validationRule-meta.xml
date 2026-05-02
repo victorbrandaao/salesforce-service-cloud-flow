@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Obrigatoriedade_Qualificacao</fullName>
+    <active>true</active>
+    <description>Impede o avanço para Trabalhando - Contatado sem preencher Setor e Receita Anual.</description>
+    <errorConditionFormula>AND(
+   ISPICKVAL(Status, &quot;Trabalhando - Contatado&quot;),
+   OR(
+      ISBLANK(TEXT(Industry)),
+      ISBLANK(AnnualRevenue)
+   )
+)</errorConditionFormula>
+    <errorDisplayField>Status</errorDisplayField>
+    <errorMessage>Para avançar o lead para este estágio, os campos Setor e Receita Anual devem ser preenchidos.</errorMessage>
+</ValidationRule>
